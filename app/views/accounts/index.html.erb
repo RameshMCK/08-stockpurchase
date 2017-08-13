@@ -1,0 +1,26 @@
+<h1 class="display-4">Account List</h1>
+<table class="table table-striped" >
+<thead class="thead-inverse">
+    <tr>
+        <th></th>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Balance</th>
+    </tr>
+</thead>
+
+
+<tr>
+ <tbody>
+        <% @accounts.each do |a| %>
+            <tr>
+                <th></th>
+                <td><%= a.id %></td>
+                <td><%= link_to a.name, txn_account_path(a) %></td>
+                <td><%= number_to_currency a.balance %></td>
+            </tr>
+        <% end %>
+    </tbody>
+    
+    </tr>
+</table>    
