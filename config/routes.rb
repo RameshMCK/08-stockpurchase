@@ -13,10 +13,14 @@ Rails.application.routes.draw do
         end
     end
 
-    resources :portfolios, only:[:index, :new, :create]  do
+    resources :portfolios  do
         member do
-            post '/portfolio', to: 'portfolios#purchase_stocks'
+            post '/purchase', to: 'portfolios#purchase'
+            post '/sell', to: 'portfolios#sell'
+            get '/buy_stock', to: 'portfolios#buy_stock'
+            get '/sell_stock', to: 'portfolios#sell_stock'
         end
     end
 
+    resources :transactions, only: [:index] 
 end

@@ -1,0 +1,36 @@
+<h2 class="display-4"><%= @portfolio.name %> Portfolio </h2>
+
+</br>
+<%=link_to "Buy Stocks", buy_stock_portfolio_path(@portfolio), class: "btn btn-info" %>
+<%=link_to "Sell Stocks", sell_stock_portfolio_path(@portfolio), class: "btn btn-info" %>
+</br>
+</br>
+<div class ="row align-items-end">
+    <div class ="col"><%=@price if @price%></div>
+    <div class ="col"><%=@balance if @balance%></div>
+    <div class ="col"><%=@cmp if @cmp%></div>
+    
+</div>
+
+<% if @stocks %>
+    <h4> Stock history</h4>
+    <table class ="table table-striped">
+        <thead>
+        <tr> 
+            <th>Company</th>
+            <th>Quantity</th>
+            <th>Price</th>        
+        </tr>
+        </thead>
+        <tbody>
+            <% @stocks.each do |a| %>
+                <tr>
+                <td><%=a.symbol %></td>
+                <td><%=a.noofshares %></td>
+                <td><%=a.price %></td>
+                <td></td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+<% end %>

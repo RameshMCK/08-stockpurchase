@@ -31,16 +31,16 @@ ActiveRecord::Schema.define(version: 20170811201455) do
     t.index ["account_id"], name: "index_portfolios_on_account_id"
   end
 
-  create_table "stocks", force: :cascade do |t|
+  create_table "transactions", force: :cascade do |t|
     t.string "symbol"
     t.integer "noofshares"
     t.integer "price"
     t.bigint "portfolio_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["portfolio_id"], name: "index_stocks_on_portfolio_id"
+    t.index ["portfolio_id"], name: "index_transactions_on_portfolio_id"
   end
 
   add_foreign_key "portfolios", "accounts"
-  add_foreign_key "stocks", "portfolios"
+  add_foreign_key "transactions", "portfolios"
 end

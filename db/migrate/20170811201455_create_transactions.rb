@@ -1,6 +1,6 @@
-class CreateStocks < ActiveRecord::Migration[5.1]
+class CreateTransactions < ActiveRecord::Migration[5.1]
   def change
-    create_table :stocks do |t|
+    create_table :transactions do |t|
       t.string :symbol
       t.integer :noofshares
       t.integer :price
@@ -10,6 +10,6 @@ class CreateStocks < ActiveRecord::Migration[5.1]
       
     end
     
-    add_foreign_key :stocks, :portfolios
+    add_foreign_key :transactions, :portfolios
   end
 end

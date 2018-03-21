@@ -73,6 +73,7 @@
     </div>
 </div>
 <% if @portfolios %>
+ <h4 class="display-4"> Current Portfolios</h4>
     <table class="table table-striped" >
     <thead class="thead-inverse">
         <tr>
@@ -89,7 +90,7 @@
                 <tr>
                     <th></th>
                     <td><%= a.id %></td>
-                    <td><%= a.name %></td>
+                     <td><%=link_to a.name, portfolio_path(a), class: "btn btn-secondary" %></td>
                 </tr>
             <% end %>
         </tbody>
